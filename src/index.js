@@ -25,12 +25,13 @@ console.log(data[0]);
 
 // 3
 
-const cardListUL = document.getElementById('card-list')
-for (let i = 0; i <= data.length; i++) {
+// const cardListUL = document.getElementById('card-list')
+const cardListUL = document.querySelector('ul')
+for (let i = 0; i < data.length; i++) {
     console.log("Pokemon at i", data[i])
     const pokemon = data[i] // js object of current pokemon
 
-    const cardLI =  document.creatElement('li')
+    const cardLI =  document.createElement('li')
   // apply a style or a css class
     cardLI.setAttribute('class','card')
     cardListUL.append(cardLI) // at the end of the list
@@ -42,13 +43,25 @@ for (let i = 0; i <= data.length; i++) {
     listH2.innerHTML = pokemon.name
   // add h2 to li
     cardLI.append(listH2)
+    // add img
+    const cardImg = document.createElement('img')
+    cardLI.append(cardImg)
+    cardImg.setAttribute('class', 'card--img')
+    cardImg.setAttribute('width', 256)
+    cardImg.setAttribute('src', "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png")
+    // add stats
+    const cardStatsUl = document.createElement('ul')
+    cardLI.append(cardStatsUl)
+    cardStatsUl.setAttribute('class', 'card--text')
 
     // listH2.innerText = 'Bulbasaur'
     // listH2.setAttribute('class','card--title')
     // cardLI.append(listH2)
     // const listImg = document.createElement('img')
     // cardLI.append(listImg)
-    // listImg.setAttribute('class', 'width = "256" ')
+    // listImg.setAttribute('width', 256)
+        // listImg.setAttribute('src', 256)
+
     
 }
 
