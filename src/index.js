@@ -30,6 +30,7 @@ const cardListUL = document.querySelector('ul')
 for (let i = 0; i < data.length; i++) {
     console.log("Pokemon at i", data[i])
     const pokemon = data[i] // js object of current pokemon
+    console.log(pokemon)
 
     const cardLI =  document.createElement('li')
   // apply a style or a css class
@@ -48,11 +49,18 @@ for (let i = 0; i < data.length; i++) {
     cardLI.append(cardImg)
     cardImg.setAttribute('class', 'card--img')
     cardImg.setAttribute('width', 256)
-    cardImg.setAttribute('src', "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png")
+    cardImg.setAttribute('src', pokemon.sprites.other["official-artwork"].front_default)
     // add stats
     const cardStatsUl = document.createElement('ul')
     cardLI.append(cardStatsUl)
     cardStatsUl.setAttribute('class', 'card--text')
+    for (let j = 0; j < pokemon.stats.length; j++) {
+        pokemonStats = pokemon.stats[j]
+        const cardStatsLi = document.createElement('li')
+        // cardStatsLi.setAttribute('class',pokemon.stats)
+        // cardStatsLi.innerHTML = pokemonStats[2].name + ": " + pokemonStats.base_stat;
+        cardStatsUl.append(cardStatsLi)
+    }
 
     // listH2.innerText = 'Bulbasaur'
     // listH2.setAttribute('class','card--title')
